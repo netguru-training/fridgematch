@@ -5,6 +5,8 @@ gem 'rails', '4.0.2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'devise'
+gem 'omniauth'
 
 group :development, :test do
   gem 'pry'
