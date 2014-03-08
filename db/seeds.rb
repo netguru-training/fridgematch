@@ -8,6 +8,6 @@
 
 fetcher = RecipesFetcher.new
 
-(1..5).each do |i|
+(1..100).each do |i|
   fetcher.run(i)
 end

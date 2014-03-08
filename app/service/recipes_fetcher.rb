@@ -6,7 +6,9 @@ class RecipesFetcher
         Ingredient.find_or_create_by(name: ing)
       end
 
-      if recipe = Recipe.create(title: recipe['title'], url: recipe['href'], ingredients: ingredients, thumbnail: recipe['thumbnail'])
+      recipe = Recipe.new(title: recipe['title'], url: recipe['href'], ingredients: ingredients, thumbnail: recipe['thumbnail'])
+
+      if recipe.save
         puts "Added new recipe: #{recipe.title}"
       end
     end
