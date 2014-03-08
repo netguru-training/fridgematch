@@ -5,7 +5,7 @@
       - ingredient.errors.full_messages.each do |msg|
         %li= msg
 
-  = f.input :name
+  = f.input :name, :url => autocomplete_ingredient_name_ingredients_path, :as => :autocomplete
 
   .actions
     = f.submit

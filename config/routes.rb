@@ -3,7 +3,9 @@ Fridgematch::Application.routes.draw do
 
   resources :recipes
 
-  resources :ingredients
+  resources :ingredients, except: :edit do
+    get :autocomplete_ingredient_name, on: :collection
+  end
   root to: "home#index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

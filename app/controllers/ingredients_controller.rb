@@ -1,6 +1,8 @@
 class IngredientsController < ApplicationController
-  expose(:ingredients) 
+  expose(:ingredients) { current_user.ingredients }
   expose(:ingredient, attributes: :ingredient_params)
+
+  autocomplete :ingredient, :name, full: true
 
   def index
   end
@@ -12,15 +14,10 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    if ingredient.save
-      render action: :index
-    else
-      render :new
-    end
   end
 
   def destroy
-    ingredient.destroy
+    current_user.ingredients.delete(ingredient)
     render action: :index
   end
 
@@ -28,7 +25,9 @@ class IngredientsController < ApplicationController
   end
 
   def create
+    self.ingredient = Ingredient.find_or_create_by(ingredient_params)
     if ingredient.save
+      current_user.ingredients << ingredient
       redirect_to action: :index
     else
       render :new
