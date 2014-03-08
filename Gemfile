@@ -36,6 +36,8 @@ gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'haml-rails'
+gem 'rails3-jquery-autocomplete'
+gem 'jquery-ui-rails'
 
 
 group :development do
