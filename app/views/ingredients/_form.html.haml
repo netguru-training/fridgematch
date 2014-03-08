@@ -1,0 +1,11 @@
+= simple_form_for(ingredient) do |f|
+  - if ingredient.errors.any?
+    .error_explanation
+      %ul
+      - ingredient.errors.full_messages.each do |msg|
+        %li= msg
+
+  = f.input :name
+
+  .actions
+    = f.submit
