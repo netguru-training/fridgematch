@@ -1,4 +1,8 @@
 Fridgematch::Application.routes.draw do
+  resources :ingredient_categories
+
+  resources :recipes
+
   resources :ingredients
   root to: "home#index"
 
