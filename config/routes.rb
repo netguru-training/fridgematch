@@ -1,4 +1,6 @@
 Fridgematch::Application.routes.draw do
+  resources :recipes
+
   resources :ingredients
 
   devise_for :users
