@@ -1,18 +1,18 @@
-%h1 Listing ingredients
+%h1 Your ingredients
 
 %table.table
   %thead
     %tr
-      %th
-      %th
-      %th
+      %th Delete
+      %th Name
     %tbody
     - ingredients.each do |ingredient|
       %tr
+        %td
+          = link_to ingredient, method: :delete, data: { confirm: 'Are you sure?' } do
+            .glyphicon.glyphicon-remove-sign
         %td= ingredient.name
-        %td= link_to 'Show', ingredient
-        %td= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } 
 
 %br
 
-= link_to 'New Ingredient', new_ingredient_path
+= link_to 'Add Ingredient', new_ingredient_path, class: "btn btn-default"

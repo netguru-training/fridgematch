@@ -4,8 +4,8 @@
       %ul
       - ingredient.errors.full_messages.each do |msg|
         %li= msg
-
-  = f.input :name, :url => autocomplete_ingredient_name_ingredients_path, :as => :autocomplete
+  .form-group
+    = f.input :name, :url => autocomplete_ingredient_name_ingredients_path, as: :autocomplete, input_html: { class: 'form-control' }
 
   .actions
-    = f.submit
+    = f.submit class: "btn btn-success"

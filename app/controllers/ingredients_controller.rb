@@ -18,6 +18,7 @@ class IngredientsController < ApplicationController
 
   def destroy
     current_user.ingredients.delete(ingredient)
+    flash[:notice] = "Ingredient deleted!"
     render action: :index
   end
 
@@ -28,6 +29,7 @@ class IngredientsController < ApplicationController
     self.ingredient = Ingredient.find_or_create_by(ingredient_params)
     if ingredient.save
       current_user.ingredients << ingredient
+      flash[:notice] = "Ingredient added!"
       redirect_to action: :index
     else
       render :new
