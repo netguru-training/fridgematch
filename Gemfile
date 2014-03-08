@@ -44,12 +44,13 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
   gem 'pry'
+  gem 'pry-rails'
 end
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'shoulda-matchers'
