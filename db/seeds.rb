@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+(1..2).each do |i| 
+  RecipePuppy::Recipe.search_for("").page(i).get["results"].each do |recipe|
+    ingredients = recipe['ingredients'].split(", ")
+    ingredients = ingredients.map do |ing|
+      Ingredient.find_or_create_by(name: ing)
+    end
+
+
+    Recipe.create(title: recipe['title'], url: recipe['href'], ingredients: ingredients, 
+    thumbnail: recipe['thumbnail'])
+  end
+end

@@ -15,6 +15,11 @@ GIT
       rails (>= 3.2, < 4.1)
       ransack (~> 1.0)
       sass-rails
+GIT
+  remote: git://github.com/narspeth/recipe_puppy.git
+  revision: daad1bf11c5b6b34c4b47b6c7a373531a44d04dc
+  specs:
+    recipe_puppy (0.0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -273,6 +278,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.0.2)
+  recipe_puppy!
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

@@ -8,6 +8,7 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'recipe_puppy', github: 'narspeth/recipe_puppy'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
