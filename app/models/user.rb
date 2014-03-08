@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :ingredients
 
+
   def self.find_for_github_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.provider = auth.provider
@@ -14,6 +15,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.name = auth.info.name
       user.image = auth.info.image
+    end
   end
-  end
+
 end

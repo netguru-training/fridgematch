@@ -1,5 +1,10 @@
 Fridgematch::Application.routes.draw do
+  resources :ingredient_categories
+
+  resources :recipes
+
   resources :ingredients
+  root to: "home#index"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   # The priority is based upon order of creation: first created -> highest priority.
