@@ -6,6 +6,15 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+group :development, :test do
+  gem 'pry'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -41,12 +50,12 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'pry'
 end
 
 group :test do
+  gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'shoulda-matchers'
