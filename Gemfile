@@ -35,13 +35,14 @@ gem 'simple_form'
 gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'haml-rails'
 
 
 group :development do
   gem 'html2haml'
   gem 'quiet_assets'
   gem 'better_errors'
-  gem 'binding_of_caller', platforms: [:mri_19, :rbx]
+  gem 'binding_of_caller'
 end
 
 group :development, :test do
