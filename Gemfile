@@ -8,15 +8,6 @@ gem 'pg'
 gem 'devise'
 gem 'omniauth'
 
-group :development, :test do
-  gem 'pry'
-end
-
-group :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-end
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
