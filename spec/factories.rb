@@ -10,4 +10,12 @@ FactoryGirl.define do
     password 'password'
     ingredients [FactoryGirl.build(:ingredient)]
   end
+
+  factory :recipe do
+    sequence :title do |n|
+      "sample recipe #{n}"
+    end
+    url ''
+    ingredients [FactoryGirl.build(:ingredient)]
+  end
 end
