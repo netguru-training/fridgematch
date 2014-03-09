@@ -7,7 +7,7 @@
       %th
       %th Name
       %th Missing ingredients
-      %th Nutritional values
+      %th{ colspan: 2 } Nutritional values
     %tbody
     - recipes.each do |recipe|
       %tr
@@ -19,10 +19,18 @@
         %td= link_to recipe.title, recipe.url, target: "_blank"
         %td= recipe.ingredients_to_buy(current_user)
         %td
-          calories: #{recipe.nutritional_values[:calories]}
+          Calories:
           %br
-          carbohydates: #{recipe.nutritional_values[:carbohydrates]}
+          Carbohydates:
           %br
-          fat: #{recipe.nutritional_values[:fat]}
+          Fat:
           %br
-          protein: #{recipe.nutritional_values[:protein]}
+          Protein:
+        %td
+          #{recipe.nutritional_values[:calories]}
+          %br
+          #{recipe.nutritional_values[:carbohydrates]}
+          %br
+          #{recipe.nutritional_values[:fat]}
+          %br
+          #{recipe.nutritional_values[:protein]}

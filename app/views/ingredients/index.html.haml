@@ -14,5 +14,26 @@
         %td= ingredient.name
 
 %br
-
 = link_to 'Add Ingredient', new_ingredient_path, class: "btn btn-default"
+
+%h1 Your blacklisted ingredients
+
+%table.table
+  %thead
+    %tr
+      %th Delete
+      %th Name
+    %tbody
+    - blacklisted_ingredients.each do |blacklisted|
+      %tr
+        %td
+          = link_to blacklisted, method: :delete, data: { confirm: 'Are you sure?' } do
+            .glyphicon.glyphicon-remove-sign
+        %td= blacklisted.name
+
+%br
+
+= link_to 'Add Blacklisted Ingredient', new_blacklisted_ingredients_path, class: "btn btn-default"
+
+%br
+%br
