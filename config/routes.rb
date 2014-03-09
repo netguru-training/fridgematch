@@ -10,7 +10,7 @@ Fridgematch::Application.routes.draw do
       post :create_blacklisted
     end
   end
-  root to: "home#index"
+  root to: "recipes#index"
 
   resources :nutritional_values
 
