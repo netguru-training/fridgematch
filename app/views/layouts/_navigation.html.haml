@@ -1,7 +1,9 @@
+= link_to root_path, class: "navbar-brand" do
+  FridgeMatch
 %ul.nav.navbar-nav.pull-right
   - if user_signed_in?
     %li
-      .welcome
+      .welcome  
         Hello 
         = current_user.email
         - if current_user.admin
