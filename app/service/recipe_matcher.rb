@@ -14,8 +14,10 @@ class RecipeMatcher
   end
 
   def find_matches
+    blacklisted_recipes = @user.blacklisted_ingredients.flat_map(&:recipes).uniq
+
     @user.ingredients.each_with_object({}) do |i, match_hash|
-      i.recipes.each do |r|
+      (i.recipes - blacklisted_recipes).each do |r|
         match_hash[r] ||= 0
         match_hash[r] += 1
       end
