@@ -3,12 +3,14 @@
 %table.table
   %thead
     %tr
+      %th Score
       %th
       %th Name
       %th Missing ingredients
     %tbody
     - recipes.each do |recipe|
       %tr
+        %td= recipe.percentage_score(current_user)
         %td
           = link_to recipe.url, target: "_blank" do
             = image_tag(recipe.thumbnail, alt: recipe.title)

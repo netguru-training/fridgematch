@@ -12,4 +12,8 @@ class Recipe < ActiveRecord::Base
     self.ingredients - user.ingredients
   end
 
+  def score user
+    1 - ( missing_ingredients(user).count.to_f / self.ingredients.count )
+  end
+
 end
