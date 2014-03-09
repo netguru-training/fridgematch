@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:github]
 
   has_and_belongs_to_many :ingredients
+  has_and_belongs_to_many :blacklisted_ingredients, class_name: 'Ingredient', join_table: "blacklisted_ingredients_users"
 
 
   def self.find_for_github_oauth(auth)
