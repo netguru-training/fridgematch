@@ -1,6 +1,6 @@
 %h1 Recipes
 .nav.navbar-nav
-  = form_tag recipes_path, :method => 'get', class: 'navbar-form navbar-right' do
+  = form_tag recipes_path, method: 'get', class: 'navbar-form navbar-right' do
     .form-group
       = select_tag :diet_id, options_from_collection_for_select(Diet.all, "id", "name", params[:diet_id]), include_blank: true
       = submit_tag 'Load'
