@@ -1,5 +1,8 @@
 class RecipesController < ApplicationController
-  expose(:recipes) { match_recipes }
+  expose(:recipes) { match }
+
+  # def index
+  # end
 
   def match
     match_hash = Hash.new { |h, key| h[key] = 0 }

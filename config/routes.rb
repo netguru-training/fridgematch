@@ -1,7 +1,7 @@
 Fridgematch::Application.routes.draw do
   resources :ingredient_categories
 
-  resources :recipes
+  resources :recipes, only: :index
 
   resources :ingredients, except: :edit do
     get :autocomplete_ingredient_name, on: :collection

@@ -1,0 +1,14 @@
+%h1 Recipes
+
+%table.table
+  %thead
+    %tr
+      %th
+      %th Name
+    %tbody
+    - recipes.each do |recipe|
+      %tr
+        %td
+          = link_to recipe.url, target: "_blank" do
+            = image_tag(recipe.thumbnail, alt: recipe.title)
+        %td= link_to recipe.title, recipe.url, target: "_blank"
