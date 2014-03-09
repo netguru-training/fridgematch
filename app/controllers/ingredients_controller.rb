@@ -3,7 +3,6 @@ class IngredientsController < ApplicationController
   expose(:ingredient, attributes: :ingredient_params)
   expose(:blacklisted_ingredients) { current_user.blacklisted_ingredients }
   expose(:blacklisted_ingredient, attributes: :ingredient_params, model: "Ingredient" ) 
-
   autocomplete :ingredient, :name, full: true
 
   def index
@@ -29,6 +28,7 @@ class IngredientsController < ApplicationController
 
   def create
     self.ingredient = Ingredient.find_or_create_by(ingredient_params)
+    binding.pry
     if ingredient.save
       current_user.ingredients << ingredient
       flash[:notice] = "Ingredient added!"
