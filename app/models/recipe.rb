@@ -7,4 +7,9 @@ class Recipe < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
 
   validates :thumbnail, presence: true, uniqueness: true
+
+  def missing_ingredients user
+    self.ingredients - user.ingredients
+  end
+
 end

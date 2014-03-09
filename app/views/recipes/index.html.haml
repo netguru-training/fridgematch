@@ -5,6 +5,7 @@
     %tr
       %th
       %th Name
+      %th Missing ingredients
     %tbody
     - recipes.each do |recipe|
       %tr
@@ -12,3 +13,4 @@
           = link_to recipe.url, target: "_blank" do
             = image_tag(recipe.thumbnail, alt: recipe.title)
         %td= link_to recipe.title, recipe.url, target: "_blank"
+        %td= recipe.missing_ingredients_by_name(current_user)
