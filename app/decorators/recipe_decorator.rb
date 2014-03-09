@@ -13,7 +13,7 @@ class RecipeDecorator < Draper::Decorator
   end
 
   def percentage_score user
-    number_to_percentage( ( object.score(user) * 100 ).round, precision: 0)  
+    ( object.score(user) * 100 ).round(2)
   end
 
 end

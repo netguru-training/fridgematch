@@ -1,5 +1,11 @@
 /*
  *= require jquery.ui.all
+ *= require jquery.circliful
 */
 @import "bootstrap";
-@import "overall_styles.css.scss"
+@import "overall_styles.css.scss";
+
+.percentageCircle {
+  height: 70px;
+  overflow: hidden;
+}

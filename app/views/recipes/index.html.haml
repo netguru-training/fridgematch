@@ -11,7 +11,7 @@
     - recipes.each do |recipe|
       %tr
         %td
-          %h1= recipe.percentage_score(current_user)
+          .percentageCircle{ data: {percent: recipe.percentage_score(current_user), dimension: 140, type: :half, text: recipe.percentage_score(current_user)} }
         %td
           = link_to recipe.url, target: "_blank" do
             = image_tag(recipe.thumbnail, alt: recipe.title)
