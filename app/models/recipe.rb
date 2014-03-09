@@ -16,4 +16,17 @@ class Recipe < ActiveRecord::Base
     1 - ( missing_ingredients(user).count.to_f / self.ingredients.count )
   end
 
+  def nutritional_values
+    values = Hash.new(0)
+
+    self.ingredients.each do |ingredient| 
+      next if ingredient.nutritional_values.empty?
+      %i(calories carbohydrates fat protein).each do |type|
+        values[type] += ingredient.nutritional_values.first.send(type)
+      end
+    end
+    values
+  end
+
+
 end
