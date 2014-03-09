@@ -1,0 +1,11 @@
+= simple_form_for(blacklisted_ingredient, url: create_blacklisted_ingredients_path ) do |f|
+  - if blacklisted_ingredient.errors.any?
+    .error_explanation
+      %ul
+      - blacklisted_ingredient.errors.full_messages.each do |msg|
+        %li= msg
+  .form-group
+    = f.input :name, :url => autocomplete_ingredient_name_ingredients_path, as: :autocomplete, input_html: { class: 'form-control' }
+
+  .actions
+    = f.submit "Create blacklisted ingredient", class: "btn btn-success"

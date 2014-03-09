@@ -5,6 +5,10 @@ Fridgematch::Application.routes.draw do
 
   resources :ingredients, except: :edit do
     get :autocomplete_ingredient_name, on: :collection
+    collection do
+      get :new_blacklisted
+      post :create_blacklisted
+    end
   end
   root to: "home#index"
 
