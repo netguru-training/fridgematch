@@ -10,12 +10,13 @@ class RecipeMatcher
   private
 
   def sorted_matches
-    find_matches.sort_by{ |s| -s.last }.map(&:first) # => [<Recipe> ,  <Recipe> , ...]
+    find_matches.sort_by{ |s| [(s.first.ingredients.count - s.last).to_f / s.last, -s.last] }.map(&:first)
   end
 
   def find_matches
-    @user.ingredients.each_with_object(Hash.new(0)) do |i, match_hash|
+    @user.ingredients.each_with_object({}) do |i, match_hash|
       i.recipes.each do |r|
+        match_hash[r] ||= 0
         match_hash[r] += 1
       end
     end
