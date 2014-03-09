@@ -7,13 +7,22 @@
       %th
       %th Name
       %th Missing ingredients
+      %th Nutritional values
     %tbody
     - recipes.each do |recipe|
       %tr
         %td
-          .percentageCircle{ data: {percent: recipe.percentage_score(current_user), dimension: 140, type: :half, text: recipe.percentage_score(current_user)} }
+          .percentageCircle{ data: {fontsize: 24, fgcolor: '#428bca', percent: recipe.percentage_score(current_user), dimension: 140, type: :half, text: recipe.percentage_score(current_user).to_s + "%"} }
         %td
           = link_to recipe.url, target: "_blank" do
             = image_tag(recipe.thumbnail, alt: recipe.title)
         %td= link_to recipe.title, recipe.url, target: "_blank"
         %td= recipe.ingredients_to_buy(current_user)
+        %td
+          calories: #{recipe.nutritional_values[:calories]}
+          %br
+          carbohydates: #{recipe.nutritional_values[:carbohydrates]}
+          %br
+          fat: #{recipe.nutritional_values[:fat]}
+          %br
+          protein: #{recipe.nutritional_values[:protein]}
