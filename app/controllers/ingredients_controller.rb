@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   expose(:ingredients) { current_user.ingredients }
   expose(:ingredient, attributes: :ingredient_params)
   expose(:blacklisted_ingredients) { current_user.blacklisted_ingredients }
-  expose(:blacklisted_ingredient, attributes: :ingredient_params, model: "Ingredient" ) 
+  expose(:blacklisted_ingredient){ blacklisted_ingredients.find(params[:id]) } 
 
   autocomplete :ingredient, :name, full: true
 
@@ -39,7 +39,7 @@ class IngredientsController < ApplicationController
   end
 
   def new_blacklisted
-    
+    self.blacklisted_ingredient = Ingredient.new
   end
 
   def create_blacklisted
@@ -51,6 +51,11 @@ class IngredientsController < ApplicationController
     else
       render :new
     end
+  end
+  def destroy_blacklisted
+    current_user.blacklisted_ingredients.delete(blacklisted_ingredient)
+    flash[:notice] = "Blacklisted Ingredient deleted!"
+    redirect_to ingredients_path
   end
 
   private

@@ -9,6 +9,9 @@ Fridgematch::Application.routes.draw do
       get :new_blacklisted
       post :create_blacklisted
     end
+    member do
+      delete :destroy_blacklisted
+    end
   end
   root to: "recipes#index"
 

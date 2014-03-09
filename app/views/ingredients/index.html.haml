@@ -27,7 +27,7 @@
     - blacklisted_ingredients.each do |blacklisted|
       %tr
         %td
-          = link_to blacklisted, method: :delete, data: { confirm: 'Are you sure?' } do
+          = link_to destroy_blacklisted_ingredient_path(blacklisted), method: :delete, data: { confirm: 'Are you sure?' } do
             .glyphicon.glyphicon-remove-sign
         %td= blacklisted.name
 
