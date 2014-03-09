@@ -6,16 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-fetcher = RecipesFetcher.new
+#fetcher = RecipesFetcher.new
 nutritionix_fetcher = NutritronixFetcher.new
 
-(1..100).each do |i|
-  fetcher.run(i)
-end
+# (1..100).each do |i|
+#   fetcher.run(i)
+# end
 
 ingredients = Ingredient.select { |ingredient| ingredient.name != nil }
-ingredients.each { |name| nutritionix_fetcher.fetch(name)}
-
-for i in (1..100)
-  
-end
+ingredients.each { |ingredient| nutritionix_fetcher.fetch(ingredient)}
