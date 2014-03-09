@@ -18,6 +18,7 @@ FactoryGirl.define do
     end
     url ''
     ingredients [FactoryGirl.build(:ingredient)]
+  end
 
   factory :nutritional_value do
     name "chicken breast"
