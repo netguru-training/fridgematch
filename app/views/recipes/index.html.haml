@@ -13,4 +13,6 @@
           = link_to recipe.url, target: "_blank" do
             = image_tag(recipe.thumbnail, alt: recipe.title)
         %td= link_to recipe.title, recipe.url, target: "_blank"
-        %td= recipe.missing_ingredients_by_name(current_user)
+        %td
+          - recipe.ingredients_to_buy(current_user).each do |ingredient|
+            = link_to ingredient, "http://groceries.asda.com/asda-webstore/landing/home.shtml?cmpid=ahc-_-ghs-sna1-_-asdacom-dsk-_-hp#/search/"+ ingredient
