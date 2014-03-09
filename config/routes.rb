@@ -8,6 +8,8 @@ Fridgematch::Application.routes.draw do
   end
   root to: "home#index"
 
+  resources :nutritional_values
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   ActiveAdmin.routes(self)
