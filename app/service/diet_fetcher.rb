@@ -1,7 +1,7 @@
 class DietFetcher
 
-  def run(calories)
-    
-  end
+  def run
+    diet = Diet.new(name: "Diet #{Diet.count + 1}")
+    end
 
 end
