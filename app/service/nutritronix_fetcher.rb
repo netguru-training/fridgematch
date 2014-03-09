@@ -15,7 +15,7 @@ class NutritronixFetcher
   end
 
   def fetch(ingredient)
-    nutritional_value = NutritionalValue.new(self.parse(ingredient.name),ingredient: ingredient)
+    nutritional_value = NutritionalValue.new(self.parse(ingredient.name).merge({ingredient: ingredient}))
     if nutritional_value.save
       puts "Nutritional Value for #{ingredient.name} fetched successfully"
     else
