@@ -6,10 +6,14 @@
 #= require turbolinks
 #= require bootstrap
 #= require_tree .
-
+#= require dataTables/jquery.dataTables
+#= require dataTables/jquery.dataTables.bootstrap3
 
 ready = ->
   $('.percentageCircle').circliful()
-
+  $('.datatable').dataTable({
+    "sPaginationType": "bootstrap"
+  })
+  
 $(document).ready(ready)
 $(document).on('page:load', ready)

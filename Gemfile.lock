@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 746d1d918053b65b2dfa4724eb158acb532fdd3e
+  revision: b61be56caedfe7d7e613156dddcc84118197a2bf
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -21,6 +21,14 @@ GIT
   revision: daad1bf11c5b6b34c4b47b6c7a373531a44d04dc
   specs:
     recipe_puppy (0.0.1)
+
+GIT
+  remote: git://github.com/rweng/jquery-datatables-rails.git
+  revision: 788a7b24caf8fe58a5493aa3f6a065879a9f752a
+  specs:
+    jquery-datatables-rails (1.12.2)
+      jquery-rails
+      sass-rails
 
 GEM
   remote: https://rubygems.org/
@@ -283,6 +291,7 @@ DEPENDENCIES
   factory_girl_rails
   haml-rails
   html2haml
+  jquery-datatables-rails!
   jquery-rails
   jquery-ui-rails
   omniauth
