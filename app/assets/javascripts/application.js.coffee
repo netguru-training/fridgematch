@@ -11,9 +11,15 @@
 
 ready = ->
   $('.percentageCircle').circliful()
-  $('.datatable').dataTable({
-    "sPaginationType": "bootstrap"
-  })
-  
+  $('.datatable').dataTable
+    "sPaginationType": "bootstrap",
+    "aoColumns": [
+                null,
+                { "bSortable": false },
+                null,
+                { "bSortable": false },
+                { "bSortable": false },
+                null,
+            ]
 $(document).ready(ready)
 $(document).on('page:load', ready)

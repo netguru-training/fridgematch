@@ -1,13 +1,7 @@
-namespace :fetcher do
+namespace :fetch do
   desc "Fetch recipes"
-  task :fetch_recipes, [:value] => :environment do |t, args|
-    puts args
-    range = if args.value.nil? 
-      100 
-    else
-      args.value.to_i
-    end
-    puts range
+  task :recipes, [:value] => :environment do |t, args|
+    range   = args.value || 100
     fetcher = RecipesFetcher.new
     (1..args.value.to_i).each do |i|
       fetcher.run(i)
@@ -15,9 +9,11 @@ namespace :fetcher do
   end
 
   desc "Fetch nutritionics"
-  task :fetch_nutritionics => :environment do
+  task :nutritionics, [:value] => :environment do
     nutritionix_fetcher = NutritronixFetcher.new
     ingredients = Ingredient.select { |ingredient| ingredient.name != nil }
-    ingredients.each { |ingredient| nutritionix_fetcher.fetch(ingredient)}
+    ingredients.take((args.value || 1000).to_i).each do |ingredient|
+      nutritionix_fetcher.fetch(ingredient)
+    end
   end
 end

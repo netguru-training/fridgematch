@@ -29,6 +29,7 @@ class IngredientsController < ApplicationController
 
   def create
     self.ingredient = Ingredient.find_or_create_by(ingredient_params)
+    binding.pry
     if ingredient.save
       current_user.ingredients << ingredient
       flash[:notice] = "Ingredient added!"
