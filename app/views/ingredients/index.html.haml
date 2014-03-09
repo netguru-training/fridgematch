@@ -14,6 +14,7 @@
         %td= ingredient.name
 
 %br
+= link_to 'Add Ingredient', new_ingredient_path, class: "btn btn-default"
 
 %h1 Your blacklisted ingredients
 
@@ -32,7 +33,6 @@
 
 %br
 
-= link_to 'Add Ingredient', new_ingredient_path, class: "btn btn-default"
 = link_to 'Add Blacklisted Ingredient', new_blacklisted_ingredients_path, class: "btn btn-default"
 
 %br
