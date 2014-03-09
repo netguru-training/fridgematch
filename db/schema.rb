@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140309131759) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,11 +89,15 @@ ActiveRecord::Schema.define(version: 20140309131759) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-
   create_table "active_nutrition_migrations", force: true do |t|
     t.integer  "sequence_no"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "blacklisted_ingredients_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "ingredient_id"
   end
 
   create_table "data_src", id: false, force: true do |t|
@@ -164,11 +166,6 @@ ActiveRecord::Schema.define(version: 20140309131759) do
     t.string  "Footnot_Typ", limit: 1
     t.integer "Nutr_No"
     t.string  "Footnot_Txt", limit: 200
-
-  create_table "blacklisted_ingredients_users", force: true do |t|
-    t.integer "user_id"
-    t.integer "ingredient_id"
-
   end
 
   create_table "ingredient_categories", force: true do |t|
